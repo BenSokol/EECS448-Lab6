@@ -3,7 +3,7 @@
  * @Author:   Ben Sokol <Ben>
  * @Email:    bensokol@ku.edu
  * @Created:  October 28th, 2017 [2:21pm]
- * @Modified: October 29th, 2017 [2:43am]
+ * @Modified: November 1st, 2017 [11:19am]
  *
  * Copyright (C) 2017 by Ben Sokol. All Rights Reserved.
  */
@@ -11,39 +11,43 @@
 
 #pragma once
 
+//#include <cstdlib>
+#include <ctime>
 #include <fstream>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <map>
 #include <string>
+#include <unistd.h>
+#include <vector>
 
 #include "LinkedListOfInts.h"
 
-#ifndef WIN32
-  #include <unistd.h>
-  #define sleep_ms(ms) usleep(ms * 1000)
-#endif
 
 #ifndef _UINT
 	#define _UINT
 	typedef unsigned int uint;
 #endif
 
-#define PRINT_VECTORS 1
-
 
 class LinkedListTests {
   public:
     LinkedListTests();
     LinkedListTests(int value);
-    void runTests();
+
     void printErrors();
+    void runTests();
+
   private:
+    void initalizeTests();
+
     void printVector(std::vector<int> vec);
     std::vector<int> createVector();
+
     void printResult(bool pass, std::string testName);
-    void initalizeTests();
+
+    bool testExpectedSize(bool passed, int linkedList, int expected);
+    bool testExpectedVectors(bool passed, std::vector<int> linkedList, std::vector<int> expected);
+
     bool test01();
     bool test02();
     bool test03();
@@ -57,6 +61,10 @@ class LinkedListTests {
     bool test11();
     bool test12();
     bool test13();
+    bool test14();
+		bool test15();
+		bool test16();
+
     uint testSize;
     std::map<std::string, bool (LinkedListTests::*)()> tests;
 };

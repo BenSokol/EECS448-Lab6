@@ -1,3 +1,8 @@
 1. addBack doesn't add to the back of the list, instead it adds to the front of the list.
-2. removeFront always returns false and doesn't remove any elements from the list.
-3. removeBack always returns false and doesn't remove any elements from the list.
+2. isEmpty always returns true.
+3. removeFront always returns false and doesn't remove any elements from the list.
+4. removeBack always returns false and doesn't remove any elements from the list.
+
+NOTES:
+> isEmpty returning true might be why removeFront always returns false and doesn't do anything.
+> isEmpty returning true might be why removeBack always returns false and doesn't do anything.
